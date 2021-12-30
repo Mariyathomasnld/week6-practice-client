@@ -7,20 +7,20 @@ import Loading from "./components/Loading";
 import MessageBox from "./components/MessageBox";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import AllSpaces from "./pages/AllSpaces";
 
 import { useDispatch, useSelector } from "react-redux";
 import { selectAppLoading } from "./store/appState/selectors";
 import { getUserWithStoredToken } from "./store/user/actions";
 import { Jumbotron } from "react-bootstrap";
+import SpaceDetails from "./pages/SpaceDetails";
 
-const Home = () => (
+
+
+
+const Myspace = () => (
   <Jumbotron>
-    <h1>Home</h1>
-  </Jumbotron>
-);
-const Other = () => (
-  <Jumbotron>
-    <h1>Other</h1>
+    <h1>My Space</h1>
   </Jumbotron>
 );
 
@@ -38,10 +38,11 @@ function App() {
       <MessageBox />
       {isLoading ? <Loading /> : null}
       <Routes>
-        <Route exact path='/' element={<Home />} />
-        <Route path='/other' element={<Other />} />
+        <Route exact path='/' element={<AllSpaces/>} />
+        <Route path='/myspace' element={<Myspace />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/spaces/:id' element={<SpaceDetails />} />
       </Routes>
     </div>
   );

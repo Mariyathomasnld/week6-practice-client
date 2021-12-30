@@ -1,0 +1,1 @@
+export const selectSpaceDetail = (reduxState) => reduxState.detailSpace.space
